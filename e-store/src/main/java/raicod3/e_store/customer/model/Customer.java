@@ -35,13 +35,15 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String name, Address address, String phone, String email, String password) {
+    public Customer(int id, String name, Address address, String phone, String email, String password, Cart cart, List<Order> orders) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
         this.password = password;
+        this.cart = cart;
+        this.orders = orders;
     }
 
     public int getId() {
@@ -90,5 +92,21 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

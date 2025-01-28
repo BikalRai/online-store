@@ -12,16 +12,16 @@ public class Address {
     private int id;
     private String city;
     private String street;
-    private String district;
+    private String landmark;
 
     public Address() {
     }
 
-    public Address(int id, String city, String street, String district) {
+    public Address(int id, String city, String street, String landmark) {
         this.id = id;
         this.city = city;
         this.street = street;
-        this.district = district;
+        this.landmark = landmark;
     }
 
     public int getId() {
@@ -48,11 +48,12 @@ public class Address {
         this.street = street;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getLandmark() {
+        return landmark;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setLandmark(String landmark) {
+        this.landmark = landmark;
     }
+
 }

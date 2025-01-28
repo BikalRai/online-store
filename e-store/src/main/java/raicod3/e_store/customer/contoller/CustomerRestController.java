@@ -17,6 +17,7 @@ public class CustomerRestController {
         this.customerService = customerService;
     }
 
+    @PostMapping("/register")
     public ResponseEntity<CustomerResponseDTO> registerCustomer(@RequestBody CustomerRegisterRequestDTO customerRegReqDTO) {
         return new ResponseEntity<>(customerService.registerCustomer(customerRegReqDTO), HttpStatus.CREATED);
     }

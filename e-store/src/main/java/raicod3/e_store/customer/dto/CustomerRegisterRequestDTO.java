@@ -8,7 +8,9 @@ public class CustomerRegisterRequestDTO {
     private String name;
     private String phone;
     private String email;
-    private Address address;
+    private String city;
+    private String street;
+    private String landmark;
     private String password;
 
     public String getName() {
@@ -35,12 +37,28 @@ public class CustomerRegisterRequestDTO {
         this.email = email;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getCity() {
+        return city;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getLandmark() {
+        return landmark;
+    }
+
+    public void setLandmark(String landmark) {
+        this.landmark = landmark;
     }
 
     public String getPassword() {
