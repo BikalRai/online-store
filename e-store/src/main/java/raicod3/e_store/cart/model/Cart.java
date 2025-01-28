@@ -19,9 +19,10 @@ public class Cart {
     public Cart() {
     }
 
-    public Cart(LocalDateTime createdAt, int id) {
-        this.createdAt = createdAt;
+    public Cart(int id, LocalDateTime createdAt, Customer customer) {
         this.id = id;
+        this.createdAt = createdAt;
+        this.customer = customer;
     }
 
     public int getId() {
@@ -38,5 +39,13 @@ public class Cart {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
