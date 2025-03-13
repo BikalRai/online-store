@@ -1,47 +1,35 @@
-package raicod3.e_store.product.model;
+package raicod3.e_store.product.dto;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import raicod3.e_store.category.dto.CategoryResponseDTO;
 import raicod3.e_store.category.model.Category;
+import raicod3.e_store.product.model.Product;
 
-@Entity
-public class Product {
+public class ProductResponseDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-
-	@ManyToMany
-	@JoinTable(name = "product_category", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "category_id") })
 	private List<Category> categories;
 	private BigDecimal price;
 	private List<String> imageUrls;
 	private String description;
 	private int quantity;
 
-	public Product() {
+	public ProductResponseDTO() {
+
 	}
 
-	public Product(int id, String name, List<Category> categories, BigDecimal price, List<String> imageUrls,
-			String description, int quantity) {
-
-		this.id = id;
-		this.name = name;
-		this.categories = categories;
-		this.price = price;
-		this.imageUrls = imageUrls;
-		this.description = description;
-		this.quantity = quantity;
+	public ProductResponseDTO(Product product) {
+		this.id = product.getId();
+		this.name = product.getName();
+		this.price = product.getPrice();
+		this.description = product.getDescription();
+		this.quantity = product.getQuantity();
+		this.categories = product.getCategories().stream().collect(Collectors.toList());
+		this.imageUrls = product.getImageUrls().stream().collect(Collectors.toList());
 	}
 
 	public int getId() {
@@ -99,4 +87,11 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	@Override
+	public String toString() {
+		return "ProductResponseDTO [id=" + id + ", name=" + name + ", categories=" + categories + ", price=" + price
+				+ ", imageUrls=" + imageUrls + ", description=" + description + ", quantity=" + quantity + "]";
+	}
+
 }
