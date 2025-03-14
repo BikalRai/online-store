@@ -12,7 +12,7 @@ public class ProductResponseDTO {
 
 	private int id;
 	private String name;
-	private List<Category> categories;
+	private List<CategoryResponseDTO> categories;
 	private BigDecimal price;
 	private List<String> imageUrls;
 	private String description;
@@ -28,7 +28,8 @@ public class ProductResponseDTO {
 		this.price = product.getPrice();
 		this.description = product.getDescription();
 		this.quantity = product.getQuantity();
-		this.categories = product.getCategories().stream().collect(Collectors.toList());
+		this.categories = product.getCategories().stream().map(category -> new CategoryResponseDTO(category))
+				.collect(Collectors.toList());
 		this.imageUrls = product.getImageUrls().stream().collect(Collectors.toList());
 	}
 
@@ -48,11 +49,11 @@ public class ProductResponseDTO {
 		this.name = name;
 	}
 
-	public List<Category> getCategories() {
+	public List<CategoryResponseDTO> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<Category> categories) {
+	public void setCategories(List<CategoryResponseDTO> categories) {
 		this.categories = categories;
 	}
 

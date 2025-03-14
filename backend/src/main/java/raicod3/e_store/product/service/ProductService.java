@@ -3,9 +3,6 @@ package raicod3.e_store.product.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.management.RuntimeErrorException;
-
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import raicod3.e_store.category.model.Category;
@@ -35,8 +32,7 @@ public class ProductService {
 			// map the new product details from the requestDTO
 			newProduct.setName(productRequestDTO.getName());
 			List<Category> categories = productRequestDTO.getCategories().stream()
-					.map(category -> categoryRepo.findById(category.getId())
-							.orElseThrow(() -> new RuntimeException("category not found: " + category.getId())))
+					.map(category -> categoryRepo.findByName(category.getName()))
 					.filter(category -> category != null).collect(Collectors.toList());
 			newProduct.setCategories(categories);
 
@@ -54,6 +50,23 @@ public class ProductService {
 			return productResponseDTO;
 		} catch (Exception e) {
 			throw new CustomException("error creating new product, " + e.getMessage());
+		}
+	}
+	
+	// get all products
+	public List<ProductResponseDTO> getAllProdcuts(String productName, int limit) {
+		try {
+			List<Product> allProducts;
+			
+			if(productName != null && !(productName.isEmpty())) {
+				allProducts = productRepo.findByNameContainingIgnoreCase(productName);
+			} else {
+				allProducts = productRepo.findAll();
+			}
+			
+			return allProducts.stream().limit(limit).map(ProductResponseDTO::new).collect(Collectors.toList());
+		} catch(Exception e) {
+			throw new RuntimeException("Error retrieving all products, " + e.getMessage());
 		}
 	}
 

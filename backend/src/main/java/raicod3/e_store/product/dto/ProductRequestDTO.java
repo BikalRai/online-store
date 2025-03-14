@@ -18,7 +18,7 @@ public class ProductRequestDTO {
 	@Size(min = 3, max = 255, message = "Product name must be between 3 and 255 characters")
 	private String name;
 
-	@NotBlank(message = "Select at least one category")
+	@NotEmpty(message = "Select at least one category")
 	private List<CategoryResponseDTO> categories;
 
 	@NotNull(message = "Price cannot be null")
