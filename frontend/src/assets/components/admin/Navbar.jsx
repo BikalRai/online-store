@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NavigationLink from "./NavigationLink";
 import {
   LuLayoutDashboard,
   LuPackage2,
@@ -7,7 +8,6 @@ import {
   LuTag,
   LuUsers,
 } from "react-icons/lu";
-import NavigationLink from "./NavigationLink";
 
 export default function Navbar() {
   const [activeLink, setActiveLink] = useState("dashboard");

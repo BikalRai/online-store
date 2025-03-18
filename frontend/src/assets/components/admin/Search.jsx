@@ -8,7 +8,7 @@ export default function Search() {
         <input
           type="search"
           placeholder="search"
-          className="placeholder:text-gray text-gray border-0 outline-0"
+          className="placeholder:text-gray text-gray w-full border-0 outline-0"
         />
       </div>
     </form>

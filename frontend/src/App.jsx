@@ -1,9 +1,12 @@
-import Layout from "./assets/components/admin/Layout";
+import AdminLayout from "./assets/components/admin/AdminLayout";
+import AdminRoutes from "./assets/components/AdminRoutes";
 
 function App() {
   return (
     <>
-      <Layout />
+      <AdminLayout>
+        <AdminRoutes />
+      </AdminLayout>
     </>
   );
 }

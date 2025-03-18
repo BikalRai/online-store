@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import Navbar from "./Navbar";
 import Search from "./Search";
 
-export default function Layout() {
+export default function AdminLayout({ children }) {
   return (
     <div className="flex">
       <div className="relative min-h-dvh">
@@ -17,7 +17,7 @@ export default function Layout() {
             <Avatar />
           </div>
         </section>
-        <section className="mt-5 h-full bg-blue-700">Section 2</section>
+        <section className="mt-5 h-full">{children}</section>
       </main>
     </div>
   );

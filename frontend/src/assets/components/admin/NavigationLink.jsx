@@ -10,8 +10,8 @@ export default function NavigationLink({
   return (
     <NavLink
       title={linkName[0].toUpperCase() + linkName.slice(1)}
-      to={`${linkName === "dashboard" ? "" : linkName}`}
-      className={`flex text-large items-center gap-3 p-5 rounded-lg ${activeLink === linkName ? "bg-primary text-light" : "bg-transparent text-gray"} `}
+      to={`${linkName === "dashboard" ? "/" : `/${linkName}`}`}
+      className={`text-large flex items-center gap-3 rounded-lg p-5 ${activeLink === linkName ? "bg-primary text-light" : "text-gray bg-transparent"} `}
       onClick={() => handleActiveLinkName(linkName)}
     >
       <span>{linkIcon}</span>
