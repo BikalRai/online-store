@@ -34,11 +34,9 @@
   h3 {
     font-size: var(--font-h3);
   }
-}
 
-@layer components {
-  .navlink a.active {
-    @apply bg-primary text-light;
+  table {
+    border-collapse: collapse;
   }
 }
 

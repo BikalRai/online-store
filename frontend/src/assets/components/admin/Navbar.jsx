@@ -7,8 +7,7 @@ import {
   LuTag,
   LuUsers,
 } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
-import NavigationLink from "../NavigationLink";
+import NavigationLink from "./NavigationLink";
 
 export default function Navbar() {
   const [activeLink, setActiveLink] = useState("dashboard");
@@ -17,12 +16,8 @@ export default function Navbar() {
     setActiveLink(linkName);
   };
   return (
-    <nav className="flex flex-col bg-light min-h-dvh sticky items-center p-5 max-w-[215px] gap-5 top-0 rounded-r-lg">
-      <div className="logo">
-        <a href="" className="text-h1 text-primary font-bold ">
-          Logo
-        </a>
-      </div>
+    <nav className="bg-light sticky top-0 flex min-h-dvh max-w-[215px] flex-col items-center gap-5 rounded-r-lg p-5">
+      <div className="text-h2 sm:text-h1 text-primary font-bold">Logo</div>
       <ul className="grid gap-5">
         <li>
           <NavigationLink

@@ -1,4 +1,4 @@
-import Layout from "./assets/components/admin/layout/Layout";
+import Layout from "./assets/components/admin/Layout";
 
 function App() {
   return (
